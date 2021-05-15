@@ -1,0 +1,44 @@
+Table;Field;Description
+OPT / СР – Опционы / Derivatives - Options;CONTRACT;Код контракта
+OPT / СР – Опционы / Derivatives - Options;AVRG;Средневзвешенная цена Инструмента
+OPT / СР – Опционы / Derivatives - Options;FEE;Сбор за регистрацию сделки, руб.
+OPT / СР – Опционы / Derivatives - Options;TICK_PRICE;Стоимость шага цены, руб.
+OPT / СР – Опционы / Derivatives - Options;TICK;Шаг цены
+OPT / СР – Опционы / Derivatives - Options;DEPO_UNCOV;Лимит колебаний цен сделок по опционному контракту (по непокрытой позиции) (в рублях РФ)
+OPT / СР – Опционы / Derivatives - Options;DEPO_COV;Лимит колебаний цен сделок по опционному контракту и фьючерсному контракту, являющемуся базовым активом опционного контракта (по синтетической позиции) (в рублях РФ)
+OPT / СР – Опционы / Derivatives - Options;FUT_CONTR;Код (обозначение) фьючерсного контракта, являющегося базовым активом опционного контракта
+OPT / СР – Опционы / Derivatives - Options;STRIKE;Цена исполнения опционного контракта (страйк) (в пунктах)
+OPT / СР – Опционы / Derivatives - Options;PUT;"Тип опционного контракта: 'P' - PUT; 'C' - CALL"
+OPT / СР – Опционы / Derivatives - Options;EVROP;"Категория опционного контракта: 'E' - европейский; 'A' - американский"
+OPT / СР – Опционы / Derivatives - Options;VOLAT;Волатильность опционного контракта, определенная в ходе вечерней клиринговой сессии
+OPT / СР – Опционы / Derivatives - Options;THEORPRICE;Теоретическая цена опционного контракта, определенная на момент начала вечерней клиринговой сессии (в пунктах)
+OPT / СР – Опционы / Derivatives - Options;TICK_PR_GO;Стоимость шага цены опционного контракта для расчета лимита колебаний цен сделок, установленная в Торговой системе, используемая для расчета Гарантийного обеспечения (в рублях РФ)
+OPT / СР – Опционы / Derivatives - Options;PR_VOLAT;Волатильность опционного контракта, определенная в ходе дневной клиринговой сессии
+OPT / СР – Опционы / Derivatives - Options;PR_THEORPR;Теоретическая цена опционного контракта, определенная на момент начала дневной клиринговой сессии (в пунктах)
+OPT / СР – Опционы / Derivatives - Options;FUT_TYPE;"Признак маржируемости опционного контракта: 0 - немаржируемый опционный контракт; 1 - маржируемый опционный контракт"
+OPT / СР – Опционы / Derivatives - Options;BASEGOBUY;Базовый размер Гарантийного обеспечения под покупку маржируемых опционных контрактов
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;EXP_DATE;Дата исполнения инструмента
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;LIMIT_UP;Количество пунктов до верхней границы
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;LIMIT_DOWN;Количество пунктов до нижней границы
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;IM_NOTCOVSELL;ГО по непокрытой позиции, руб.
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;IM_COVSELL;ГО по синтетической позиции, руб.
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;IM_BUY;ГО на покупку опциона, руб.
+FO_RISKOPT / СР – Риск-параметры по Опционам / Derivatives - Options Risk Parameters;TICKER;Код контракта
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;TICKER;Код контракта
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;SHORT_TICKER;Торговый код контракта
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;SECURITY_NM;Наименование контракта (краткое)
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;KIND;"Тип контракта (F - фьючерс; O - опцион, S - календарный спред)"
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;BASE_CODE;Код серии контрактов
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;BASE_NM;Наименование базового актива
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;BASE_CUR;Валюта базового актива
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;EXEC_TYPE;Тип исполнения (T - поставка акций, D - поставочные, I - расчетные)
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;START_DATE;Дата начала торгов
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;END_DATE;Последняя дата торгов
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;EXP_DATE;Дата исполнения контракта
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;BLOOMBERG_CODE;Код Bloomberg
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;THOMSONREUTERS_CODE;Код Thomson Reuters
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;STRIKE;Цена страйк
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;QUOTATION;В чем выражена котировка
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;MIN_STEP;Шаг цены
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;LOT;Количество бумаг в контракте
+FO / СР – Дополнения Справочника Инструментов / Derivatives - Futures and Options Extras;MIN_STEP_PRICE;Шаг цены в деньгах

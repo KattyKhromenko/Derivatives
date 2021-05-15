@@ -1,0 +1,58 @@
+#Выбрать все элементы из файла fut-opt с опционами
+SELECT * FROM public.fut_opt 
+WHERE "KIND" = 'O'
+
+#Выбрать все элементы из файла fut-opt с фьючерсами
+SELECT * FROM public.fut_opt 
+WHERE "KIND" = 'F'
+
+#Сравнение столбцов в таблицах risk и description по столбцам Margin и Deposit (Результатом запроса являются одинаковые значения) 
+#1 вариант
+SELECT "DEPOSIT" FROM public.risk
+JOIN public.description
+ON "MARGIN" = "DEPOSIT"
+#2 вариант - Если столбцы похожи, то запрос выдаст 0 ячеек.  
+SELECT "MARGIN" FROM public.risk
+WHERE "MARGIN" NOT IN (SELECT "DEPOSIT" FROM public.description )
+
+#Cравнение столбцов в таблице description по столбцам TICK_PRICE и TICK_PR_GO (Результатом запроса являются одинаковые значения  -Стоимость шага цены 
+и Стоимость шага цены для расчета гарантийного обеспечения одно и тоже) 
+SELECT "TICK_PRICE" FROM public.description
+WHERE "TICK_PRICE" = "TICK_PR_GO"
+
+#Cравнение столбцов в таблице description и fut_opt по столбцам MIN_STEP и TICK (Значения одинаковы)
+SELECT "MIN_STEP" FROM public.fut_opt
+WHERE "MIN_STEP" NOT IN (SELECT "TICK" FROM public.description )
+
+#Сравнение столбцов в таблице description и fut_opt по столбцам MIN_STEP_PRICE и TICK_PRICE (Значения не одинаковы)
+SELECT "MIN_STEP_PRICE" FROM public.fut_opt
+WHERE "MIN_STEP_PRICE" NOT IN (SELECT "TICK_PRICE" FROM public.description )
+
+#Cоздание таблицы для фьючерсов 
+CREATE TABLE public.tr_fut
+as
+SELECT * FROM public.fut_opt
+WHERE "KIND" = 'F'
+
+#Посмотреть на данные из новой таблицы
+SELECT "CONTRACT" ,"SETTL","FEE", "TICK_PRICE","TICK","AVRG","IS_SPREAD","IS_PERCENT",
+"PERC_RATE","SETTL_RUR","PR_SETTL","PR_SETTLE_R","TYPE_EXEC","SECTION, "TYPE_SBOR" , "NS_FEE", "MULTILEG" 
+FROM public.tr_fut
+
+#Удалить ненужные колонки (пример скрипта, также удаляем TICK_PRICE_GO)
+ALTER TABLE public.description
+drop column "DEPOSIT"
+
+# SELECT "TICK" from public.description (TICK и MIN_STEP являются одинаковыми)
+where "TICK" NOT IN (SELECT "MIN_STEP" from public.fut_opt)
+
+#Подтянем данные для характеритиски фьючерсных контрактов
+SELECT "TICKER","SHORT_TICKER" "BASE_NM", "BASE_CUR","EXEC_TYPE","START_DATE", "END_DATE","EXP_DATE", "STRIKE", "QUOTATION",
+"LOT", "MIN_STEP", "MIN_STEP_PRICE", "SECTION" 
+from public.fut_opt
+INNER JOIN public.description
+on "TICKER" = "CONTRACT"
+
+
+
+

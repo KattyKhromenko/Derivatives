@@ -1,0 +1,97 @@
+#Cоздание таблицы description (Фьючерсные контракты - файл FUT_F_20171101000000.csv)
+
+CREATE TABLE public.description
+(   "CONTRACT" text,
+    "SETTL" real,
+    "FEE" real,
+    "TICK_PRICE" real,
+    "TICK" real,
+    "AVRG"  real,
+    "IS_SPREAD" real,
+    "DEPOSIT" real,
+    "IS_PERCENT" real,
+    "PERC_RATE" real,
+    "SETTL_RUR" real,
+    "TICK_PR_GO" real,
+    "LIMIT_L1" real, 
+    "PR_SETLL" real,
+    "PR_SETTL_R" real,
+    "TYPE_EXEC" real,
+    "SECTION" text,
+    "TYPE_SBOR" text,
+    "NS_FEE" real,
+    "MULTILEG" real,
+    "SHORTNAME" text    
+
+
+ )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.description
+    OWNER to postgres;
+
+COPY public.description
+FROM 'C:\Users\Public\description.csv'
+DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
+
+#Создание таблицы риск-параметров (Справочник риск-параметров по фьючерсам - файл FO_RISKFUT_F_20171101000000.csv)
+CREATE TABLE public.risk
+(   "EXP_DATE" date,
+    "MARGIN" real,
+    "LIMIT_UP" real,
+    "LIMIT_DOWN" real,
+    "SPREAD_COEFF" real,
+    "PERCENT_RATE" real,
+    "TICKER" text,
+	CONSTRAINT risk_pkey PRIMARY KEY ("TICKER")
+
+ )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.risk
+    OWNER to postgres;
+
+COPY public.risk
+FROM 'C:\Users\Public\risk.csv'
+DELIMITER ';' CSV HEADER ENCODING 'WIN 1251'; 
+
+#Таблица Дополнения Справочника инструментов (файл FO_F_20171101000000.csv)
+
+CREATE TABLE public.futures_options
+(   "TICKER" text,
+    "SHORT_TICKER" text,
+    "SECURITY_NM" text,
+    "KIND" text,
+    "BASE_CODE" text,
+    "BASE_NM" text,
+    "BASE_CUR" text,
+    "EXEC_TYPE" text,
+    "START_DATE" date, 
+    "END_DATE" date,
+    "EXP_DATE" date,
+    "STRIKE" real,
+    "QUOTATION" text,
+    "MIN_STEP" real,
+    "LOT" real,
+    "MIN_STEP_PRICE" real,
+	CONSTRAINT futures_options_pkey PRIMARY KEY ("TICKER")
+
+ )
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.futures_options
+    OWNER to postgres;
+
+COPY public.futures_options
+FROM 'C:\Users\Public\futures_options.csv'
+DELIMITER ';' CSV HEADER ENCODING 'WIN 1251'; 
+
